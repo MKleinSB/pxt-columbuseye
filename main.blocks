@@ -1,4 +1,1 @@
-<xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="pxt-on-start"></block>
-  <block type="device_forever"></block>
-</xml>
+<xml xmlns="https://developers.google.com/blockly/xml"><block type="pxt-on-start" id="+`[7/Rf[gYo_T{1u0J9w" x="0" y="0"><statement name="HANDLER"><block type="start_colorSensor" id="fNkgNSM)p;.u!,[:/Y]K"><field name="atime">TCS34725_ATIME.TIME_700_MS</field><field name="gain">TCS34725_AGAIN.GAIN_60X</field><next><block type="zeichneBalken" id="]5rPVsCFBi0$qV/7YaS8"><value name="Wert"><shadow type="math_number" id="YX~sclM98^|R!#:GVuaa"><field name="NUM">0</field></shadow><block type="getSensorData" id="/!Zsz@cQv3G6#_9d[b~W"><field name="colorId">RGB.RED</field></block></value><value name="Position"><shadow type="math_number" id="E~T_dy!XgdH}SG[uaSu`"><field name="NUM">0</field></shadow></value></block></next></block></statement></block></xml>
