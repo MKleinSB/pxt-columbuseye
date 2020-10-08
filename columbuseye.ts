@@ -58,6 +58,21 @@ enum TCS34725_ATIME {
     TIME_700_MS = 0x00     // 256 700 ms 65535
 }
 
+enum  Spalten {
+    //% block="Spalte 0"
+    col0 = 0, 
+    //% block="Spalte 1"
+    col1 = 1, 
+    //% block="Spalte 2"
+    col2 = 2,
+    //% block="Spalte 3"
+    col3 = 3, 
+    //% block="Spalte 4"
+    col4 =4
+
+}
+
+
 // Parameters for setting the wait time register.
 enum TCS34725_WTIME {
     WTIME_2_4_MS = 0xFF,    // 1 2.4 ms 0.029 sec
@@ -146,7 +161,7 @@ namespace RegisterHelper {
 
 }
 
-//% weight=100 color=#000080 icon="\uf06e" block="columbuseye"
+//% weight=100 color=#5d8af9 icon="\uf06e" block="columbuseye"
 namespace TCS34725 {
 
     let TCS34725_I2C_ADDR = TCS34725_I2C_ADDRESS;
@@ -334,11 +349,13 @@ namespace TCS34725 {
 
         return color;
     }
-
-    //% blockId="zeichneBalken" block="Zeichne Balken Farbe %Wert Position %Position"
-    export function zeichneBalken (Wert: number, Position: number) {
+    //% Position.fieldEditor="gridpicker"
+    //% Position.fieldOptions.width=200
+    //% Position.fieldOptions.columns=5
+    //% blockId="zeichneBalken" block="Zeichne Balken Farbe %Wert  | Position | %Position"
+    export function zeichneBalken (Wert: number, Position: Spalten) {
     for (let Index = 0; Index <= 4; Index++) {
-        led.unplot(Position, 4 - Index)
+        led.unplot(Position, 4 - Index)   
     }
     for (let Index = 0; Index <= pins.map(Wert,0,255,0,5); Index++) {
           if (Wert > 40) {

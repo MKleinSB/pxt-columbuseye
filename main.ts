@@ -1,2 +1,5 @@
-TCS34725.start(TCS34725_ATIME.TIME_700_MS, TCS34725_AGAIN.GAIN_60X)
-TCS34725.zeichneBalken(TCS34725.getSensorData(RGB.RED), 0)
+basic.forever(function () {
+    TCS34725.zeichneBalken(randint(0, 255), Spalten.col0)
+    TCS34725.zeichneBalken(randint(0, 255), Spalten.col2)
+    TCS34725.zeichneBalken(randint(0, 255), Spalten.col4)
+})
