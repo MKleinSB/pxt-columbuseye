@@ -88,8 +88,8 @@ enum RGB {
     GREEN,
     //% block="Blau"
     BLUE,
-    //% block="Löschen"
-    CLEAR
+    //% block="Luminanz"
+    CLEAR_LIGHT
 }
 
 // Parameters for setting the persistence register. The persistence register controls the filtering interrupt capabilities of the device.
@@ -162,6 +162,7 @@ namespace RegisterHelper {
 }
 
 //% weight=100 color=#5d8af9 icon="\uf06e" block="columbuseye"
+//% groups='["Beim Start","Sensor"]'
 namespace TCS34725 {
 
     let TCS34725_I2C_ADDR = TCS34725_I2C_ADDRESS;
@@ -261,17 +262,21 @@ namespace TCS34725 {
 
         gainSensorValue = gain;
     }
-
-    //% blockId="start_colorSensor" block="Start sensor with integration time %atime and %gain"
-    export function start(atime: TCS34725_ATIME, gain: TCS34725_AGAIN) {
+    /**
+     * Startet den Sensor mit 50x gain und 700ms Inegrationszeit 
+     * MUSS immer zu Beginn aufgerufen werden
+     */
+    //% blockId="start_colorSensor" block="Starte Sensor"
+    //% group="Beim Start"
+    export function start() {
 
         while (!isConnected) {
             initSensor();
         }
 
-        setATIMEintegration(atime);
-        setGAINsensor(gain);
-        turnSensorOn(atime);
+        setATIMEintegration(0x00); // Integrationtime 700ms
+        setGAINsensor(0x3);  //gain 50
+        turnSensorOn(0x00);
     }
 
     export type RGBC = {
@@ -331,7 +336,12 @@ namespace TCS34725 {
             }
         }
     }
+
+    /**
+     * Liest die entsprechenden Farbdaten vom Sensor 
+     */
     //% blockId="getSensorData" block="Farbdaten %colorId"
+    //% group="Sensor"
     export function getSensorData(colorId: RGB): number {
         let data = getSensorRGB();
         let color = 0;
@@ -343,12 +353,17 @@ namespace TCS34725 {
                 break;
             case RGB.BLUE: color = data.blue;
                 break;
-            case RGB.CLEAR: color = data.clear;
+            case RGB.CLEAR_LIGHT: color = data.clear;
                 break;
         }
 
         return color;
     }
+
+    /**
+    * Zeichnet einen Balken mit bis zu 5 LEDs auf der LED-Anzeige 
+    * an einer der 5 Spalten.
+    */
     //% Position.fieldEditor="gridpicker"
     //% Position.fieldOptions.width=200
     //% Position.fieldOptions.columns=5
