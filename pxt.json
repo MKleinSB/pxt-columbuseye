@@ -1,7 +1,7 @@
 {
     "name": "pxt-columbuseye",
     "version": "0.0.1",
-    "description": "",
+    "description": "Erweiterung für das Columbuseye Projekt",
     "dependencies": {
         "core": "*",
         "radio": "*"
@@ -19,5 +19,5 @@
     "supportedTargets": [
         "calliopemini"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
