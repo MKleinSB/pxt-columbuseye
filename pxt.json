@@ -1,6 +1,6 @@
 {
     "name": "pxt-columbuseye",
-    "version": "0.0.3",
+    "version": "0.1.0",
     "description": "Erweiterung für das Columbuseye Projekt",
     "dependencies": {
         "core": "*",
