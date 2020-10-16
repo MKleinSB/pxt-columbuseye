@@ -1,6 +1,6 @@
 // Originalcode https://github.com/samnied/pxt-tcs34725
 // TCS34725 extension Samuel Niederer
-// Erweitert für http://columbuseye.rub.de von Michael Klein 8.10.20
+// Erweitert für http://columbuseye.rub.de von Michael Klein 8.-16.10.2020
 
 const TCS34725_I2C_ADDRESS = 0x29        //I2C address of the TCS34725 (Page 34)
 
@@ -92,6 +92,33 @@ enum RGB {
     CLEAR_LIGHT
 }
 
+enum Wasserfarben {
+    //% block="Schwarz"
+    Schwarz,
+    //% block="Magentarot"
+    Magenta,
+    //% block="Zinnoberrot"
+    Zinnober,
+    //% block="Gelb"
+    Gelb,
+    //% block="Orange"
+    Orange,
+    //% block="Ockergelb"
+    Ocker,
+    //% block="Violett"
+    Violett,
+    //% block="Ultramarinblau"
+    Ultramarin,
+    //% block="Cyanblau"
+    Cyan,
+    //% block="Blaugrün"
+    Blaugr,
+    //% block="Gelbgrün"
+    Gelbgr,
+    //% block="Gebr. Siena"   
+    GebrSiena,
+}
+
 // Parameters for setting the persistence register. The persistence register controls the filtering interrupt capabilities of the device.
 enum TCS34725_APERS {
     APERS_0_CLEAR = 0b0000,      // Every RGBC cycle generates an interrupt
@@ -120,7 +147,10 @@ enum TCS34725_AGAIN {
     GAIN_60X = 0x3       // 60x gain
 }
 
-/* #endregion */
+let Toleranz = 30 // Toleranz und RGB-Werte festlegen
+let RGBB = 0
+let RGBG = 0
+let RGBR = 0
 
 //Functions for helping with reading and writing registers of different sizes
 namespace RegisterHelper {
@@ -265,18 +295,18 @@ namespace TCS34725 {
     /**
      * Startet den Sensor mit 50x gain und 700ms Inegrationszeit 
      * MUSS immer zu Beginn aufgerufen werden
-     */
-    //% blockId="start_colorSensor" block="Starte Sensor"
+     **/
+    //% blockId="start_colorSensor" block="Starte Farbsensor"
     //% group="Beim Start"
-    export function start() {
+    export function start(){
 
         while (!isConnected) {
             initSensor();
         }
 
-        setATIMEintegration(0x00); // Integrationtime 700ms
-        setGAINsensor(0x3);  //gain 50
-        turnSensorOn(0x00);
+        setATIMEintegration(TCS34725_ATIME.TIME_2_4_MS); // Integrationtime 2,4 ms
+        setGAINsensor(TCS34725_AGAIN.GAIN_60X);  //gain 50
+        turnSensorOn(TCS34725_ATIME.TIME_2_4_MS);
     }
 
     export type RGBC = {
@@ -329,9 +359,9 @@ namespace TCS34725 {
             b = blueColorValue / sum * 255;
 
             return {
-                red: r,
-                green: g,
-                blue: b,
+                red: Math.round(r),
+                green: Math.round(g),
+                blue: Math.round(b),
                 clear: clearColorValue
             }
         }
@@ -339,7 +369,7 @@ namespace TCS34725 {
 
     /**
      * Liest die entsprechenden Farbdaten vom Sensor 
-     */
+     **/
     //% blockId="getSensorData" block="Farbdaten %colorId"
     //% group="Sensor"
     export function getSensorData(colorId: RGB): number {
@@ -363,7 +393,7 @@ namespace TCS34725 {
     /**
     * Zeichnet einen Balken mit bis zu 5 LEDs auf der LED-Anzeige 
     * an einer der 5 Spalten.
-    */
+    **/
     //% Position.fieldEditor="gridpicker"
     //% Position.fieldOptions.width=200
     //% Position.fieldOptions.columns=5
@@ -378,5 +408,79 @@ namespace TCS34725 {
            }
        }
     }
+
+   /**
+    * Erkennt eine Pelikan Wasserfarbe mit einer gewissen Toleranz
+    **/
+    //% Position.fieldEditor="gridpicker"
+    //% Position.fieldOptions.width=200
+    //% Position.fieldOptions.columns=5
+    //% blockId="Wasserfarbe" block="Wasserfarbe %color erkannt"
+    export function Wasserfarbe (color:Wasserfarben): boolean {
+        let erkannt : boolean;
+
+    switch (color) {
+    case Wasserfarben.Schwarz : erkannt = TCS34725.Farberkennung(71, 88, 103)
+     break;
+    case Wasserfarben.Magenta : erkannt = TCS34725.Farberkennung(111, 89, 150)
+     break; //
+    case Wasserfarben.Zinnober : erkannt = TCS34725.Farberkennung(125, 71, 75)
+     break; //
+    case Wasserfarben.Gelb : erkannt = TCS34725.Farberkennung(150, 200, 110) 
+     break; //
+    case Wasserfarben.Orange : erkannt = TCS34725.Farberkennung(170, 165, 120)
+     break; //
+    case Wasserfarben.Ocker : erkannt = TCS34725.Farberkennung(86, 116, 89)  
+     break; //
+    case Wasserfarben.Violett : erkannt = TCS34725.Farberkennung(80, 90, 180)   
+     break;//
+    case Wasserfarben.Ultramarin : erkannt = TCS34725.Farberkennung(44, 77, 190)  
+     break;//
+    case Wasserfarben.Cyan : erkannt = TCS34725.Farberkennung(50, 166, 255)
+     break;//
+    case Wasserfarben.Blaugr : erkannt = TCS34725.Farberkennung(50, 120, 120)   
+     break; //
+    case Wasserfarben.Gelbgr : erkannt = TCS34725.Farberkennung(94, 190, 130)
+     break; //
+    case Wasserfarben.GebrSiena : erkannt = TCS34725.Farberkennung(90, 88, 82)
+     break; //
+    }
+    return erkannt
+        
+    }
+   
+    /**
+    * Toleranz zur Farberkennung festlegen (Standard +-30)
+    **/
+    //% advanced=true
+    //% blockId="Toleranzf" block="Toleranz bei Farberkennung %tol"
+    export function Toleranzf (tol:number) {
+    Toleranz = tol
+        }
+
+
+    /**
+    * Farberkennung über 3 RGB - Werte
+    **/
+    //% advanced=true
+    //% blockId="Farberkennung" block="Farberkennung R %RWert G %GWert B %BWert"
+    export function Farberkennung (RWert: number, GWert: number, BWert: number) {
+     RGBR = TCS34725.getSensorData(RGB.RED)
+     RGBG = TCS34725.getSensorData(RGB.GREEN)
+     RGBB = TCS34725.getSensorData(RGB.BLUE)
+      if (RWert >= RGBR - Toleranz && RWert <= RGBR + Toleranz) {
+        if (GWert >= RGBG - Toleranz && GWert <= RGBG + Toleranz) {
+           if (BWert >= RGBB - Toleranz && BWert <= RGBB + Toleranz) {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
+    } else {
+        return false
+    }
+  }
 
 }
