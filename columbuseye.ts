@@ -293,7 +293,7 @@ namespace TCS34725 {
         gainSensorValue = gain;
     }
     /**
-     * Startet den Sensor mit 50x gain und 700ms Inegrationszeit 
+     * Startet den Sensor mit 50fach Steigerung (gain) und 100ms Integrationszeit 
      * MUSS immer zu Beginn aufgerufen werden
      **/
     //% blockId="start_colorSensor" block="Starte Farbsensor (100ms)"
