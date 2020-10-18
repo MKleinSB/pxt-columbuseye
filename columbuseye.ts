@@ -296,7 +296,7 @@ namespace TCS34725 {
      * Startet den Sensor mit 50x gain und 700ms Inegrationszeit 
      * MUSS immer zu Beginn aufgerufen werden
      **/
-    //% blockId="start_colorSensor" block="Starte Farbsensor"
+    //% blockId="start_colorSensor" block="Starte Farbsensor (100ms)"
     //% group="Beim Start"
     export function start(){
 
@@ -304,9 +304,9 @@ namespace TCS34725 {
             initSensor();
         }
 
-        setATIMEintegration(TCS34725_ATIME.TIME_2_4_MS); // Integrationtime 2,4 ms
+        setATIMEintegration(TCS34725_ATIME.TIME_100_MS); // Integrationtime 2,4 ms
         setGAINsensor(TCS34725_AGAIN.GAIN_60X);  //gain 50
-        turnSensorOn(TCS34725_ATIME.TIME_2_4_MS);
+        turnSensorOn(TCS34725_ATIME.TIME_100_MS);
     }
 
     export type RGBC = {
