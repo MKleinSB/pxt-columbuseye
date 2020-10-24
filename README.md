@@ -18,6 +18,8 @@ Um dieses Repository in MakeCode zu bearbeiten.
 * klicke auf **Importieren** und dann auf **Importiere URL**
 * füge **https://github.com/mkleinsb/pxt-columbuseye** ein und klicke auf Importieren
 
+## Blöcke 
+![](https://github.com/MKleinSB/pxt-columbuseye/blob/master/mini-Screenshot.png)
 
 #### Metadaten (verwendet für Suche, Rendering)
 
