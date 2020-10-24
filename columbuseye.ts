@@ -413,57 +413,56 @@ namespace TCS34725 {
     //% blockId="LernFarbe" block="lerne Farbe %color"
     //% group="Beim Start"
     export function LernFarbe (color:Wasserfarben) {
-        let erkannt : boolean;
 
     basic.showIcon(IconNames.ArrowWest)
     switch (color) {
-    case Wasserfarben.Schwarz : { while (!(input.buttonIsPressed(Button.A))) {
-    basic.setLedColor(0x000000) }
+    case Wasserfarben.Schwarz : { basic.setLedColor(0x000000)
+    while (!(input.buttonIsPressed(Button.A))) { }
     schwarz = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
      break;
-    case Wasserfarben.Magenta : { while (!(input.buttonIsPressed(Button.A))) {
-    basic.setLedColor(0xff00ff) }
+    case Wasserfarben.Magenta : { basic.setLedColor(0xff00ff)
+    while (!(input.buttonIsPressed(Button.A))) { }
     magenta = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
      break; 
-    case Wasserfarben.Zinnober : { while (!(input.buttonIsPressed(Button.A))) {
-    basic.setLedColor(0xff0000) }
+    case Wasserfarben.Zinnober : { basic.setLedColor(0xff0000)
+    while (!(input.buttonIsPressed(Button.A))) { }
     zinnober = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
      break;
-    case Wasserfarben.Gelb : { while (!(input.buttonIsPressed(Button.A))) {
-    basic.setLedColor(0xffff00) }
+    case Wasserfarben.Gelb : { basic.setLedColor(0xffff00)
+    while (!(input.buttonIsPressed(Button.A))) { }
     gelb = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
      break;
-    case Wasserfarben.Orange : { while (!(input.buttonIsPressed(Button.A))) {
-    basic.setLedColor(0xff8000) }
+    case Wasserfarben.Orange : { basic.setLedColor(0xff8000)
+    while (!(input.buttonIsPressed(Button.A))) { }
     orange = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
      break;
-    case Wasserfarben.Ocker : { while (!(input.buttonIsPressed(Button.A))) {
-    basic.setLedColor(0xD4A012) }
+    case Wasserfarben.Ocker : { basic.setLedColor(0xD4A012)
+    while (!(input.buttonIsPressed(Button.A))) { }
     ocker = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
      break;
-    case Wasserfarben.Violett : { while (!(input.buttonIsPressed(Button.A))) {
-    basic.setLedColor(0x7f00ff) }
+    case Wasserfarben.Violett : { basic.setLedColor(0x7f00ff) 
+    while (!(input.buttonIsPressed(Button.A))) { }
     violett = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
      break;
-    case Wasserfarben.Ultramarin : { while (!(input.buttonIsPressed(Button.A))) {
-    basic.setLedColor(0x0000ff) }
+    case Wasserfarben.Ultramarin : { basic.setLedColor(0x0000ff)
+    while (!(input.buttonIsPressed(Button.A))) { }
     ultramarin = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
      break;
-    case Wasserfarben.Cyan : { while (!(input.buttonIsPressed(Button.A))) {
-    basic.setLedColor(0x3399ff) }
-    gelb = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
+    case Wasserfarben.Cyan : { basic.setLedColor(0x3399ff)
+    while (!(input.buttonIsPressed(Button.A))) { }
+    cyan = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
      break;
-    case Wasserfarben.Blaugr : { while (!(input.buttonIsPressed(Button.A))) {
-    basic.setLedColor(0x008000) }
-    gelb = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
+    case Wasserfarben.Blaugr : { basic.setLedColor(0x008000)
+    while (!(input.buttonIsPressed(Button.A))) { }
+    blaugr = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
      break;
-    case Wasserfarben.Gelbgr : { while (!(input.buttonIsPressed(Button.A))) {
-    basic.setLedColor(0xadff2f) }
-    gelb = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
+    case Wasserfarben.Gelbgr : { basic.setLedColor(0xadff2f)
+    while (!(input.buttonIsPressed(Button.A))) { }
+    gelbgr = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
      break;
-    case Wasserfarben.GebrSiena : { while (!(input.buttonIsPressed(Button.A))) {
-    basic.setLedColor(0xa0522d) }
-    gelb = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
+    case Wasserfarben.GebrSiena : { basic.setLedColor(0xa0522d)
+    while (!(input.buttonIsPressed(Button.A))) { }
+    gebrsiena = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
      break;
      }
     basic.setLedColor(0x000000)
