@@ -1,6 +1,6 @@
 // Originalcode https://github.com/samnied/pxt-tcs34725
 // TCS34725 extension Samuel Niederer
-// Erweitert für http://columbuseye.rub.de von Michael Klein 8.-16.10.2020
+// Erweitert für http://columbuseye.rub.de von Michael Klein 8.-24.10.2020
 
 const TCS34725_I2C_ADDRESS = 0x29        //I2C address of the TCS34725 (Page 34)
 
@@ -118,6 +118,20 @@ enum Wasserfarben {
     //% block="Gebr. Siena"   
     GebrSiena,
 }
+
+let schwarz = [71, 88, 103]
+let magenta = [111, 89, 150]
+let zinnober = [125, 71, 75]
+let gelb = [150, 200, 110]
+let orange = [170, 165, 120]
+let ocker = [86, 116, 89]
+let violett = [80, 90, 180]
+let ultramarin = [44, 77, 190]
+let cyan = [50, 166, 255]
+let blaugr = [50, 120, 120]
+let gelbgr = [94, 190, 130]
+let gebrsiena = [90, 88, 82]
+
 
 // Parameters for setting the persistence register. The persistence register controls the filtering interrupt capabilities of the device.
 enum TCS34725_APERS {
@@ -296,7 +310,7 @@ namespace TCS34725 {
      * Startet den Sensor mit 50fach Steigerung (gain) und 100ms Integrationszeit 
      * MUSS immer zu Beginn aufgerufen werden
      **/
-    //% blockId="start_colorSensor" block="Starte Farbsensor (100ms)"
+    //% blockId="start_colorSensor" block="starte Farbsensor (100ms)"
     //% group="Beim Start"
     export function start(){
 
@@ -390,6 +404,75 @@ namespace TCS34725 {
         return color;
     }
 
+  /**
+    * Speichert die RGB-Werte der angegebenen Farbe
+    **/
+    //% color.fieldEditor="gridpicker"
+    //% color.fieldOptions.width=200
+    //% color.fieldOptions.columns=4
+    //% blockId="LernFarbe" block="lerne Farbe %color"
+    //% group="Beim Start"
+    export function LernFarbe (color:Wasserfarben) {
+        let erkannt : boolean;
+
+    basic.showIcon(IconNames.ArrowWest)
+    switch (color) {
+    case Wasserfarben.Schwarz : { while (!(input.buttonIsPressed(Button.A))) {
+    basic.setLedColor(0x000000) }
+    schwarz = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
+     break;
+    case Wasserfarben.Magenta : { while (!(input.buttonIsPressed(Button.A))) {
+    basic.setLedColor(0xff00ff) }
+    magenta = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
+     break; 
+    case Wasserfarben.Zinnober : { while (!(input.buttonIsPressed(Button.A))) {
+    basic.setLedColor(0xff0000) }
+    zinnober = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
+     break;
+    case Wasserfarben.Gelb : { while (!(input.buttonIsPressed(Button.A))) {
+    basic.setLedColor(0xffff00) }
+    gelb = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
+     break;
+    case Wasserfarben.Orange : { while (!(input.buttonIsPressed(Button.A))) {
+    basic.setLedColor(0xff8000) }
+    orange = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
+     break;
+    case Wasserfarben.Ocker : { while (!(input.buttonIsPressed(Button.A))) {
+    basic.setLedColor(0xD4A012) }
+    ocker = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
+     break;
+    case Wasserfarben.Violett : { while (!(input.buttonIsPressed(Button.A))) {
+    basic.setLedColor(0x7f00ff) }
+    violett = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
+     break;
+    case Wasserfarben.Ultramarin : { while (!(input.buttonIsPressed(Button.A))) {
+    basic.setLedColor(0x0000ff) }
+    ultramarin = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
+     break;
+    case Wasserfarben.Cyan : { while (!(input.buttonIsPressed(Button.A))) {
+    basic.setLedColor(0x3399ff) }
+    gelb = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
+     break;
+    case Wasserfarben.Blaugr : { while (!(input.buttonIsPressed(Button.A))) {
+    basic.setLedColor(0x008000) }
+    gelb = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
+     break;
+    case Wasserfarben.Gelbgr : { while (!(input.buttonIsPressed(Button.A))) {
+    basic.setLedColor(0xadff2f) }
+    gelb = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
+     break;
+    case Wasserfarben.GebrSiena : { while (!(input.buttonIsPressed(Button.A))) {
+    basic.setLedColor(0xa0522d) }
+    gelb = [TCS34725.getSensorData(RGB.RED), TCS34725.getSensorData(RGB.GREEN), TCS34725.getSensorData(RGB.BLUE)]}
+     break;
+     }
+    basic.setLedColor(0x000000)
+    basic.showIcon(IconNames.Yes)
+    basic.pause(100)
+    basic.clearScreen()
+    }
+
+
     /**
     * Zeichnet einen Balken mit bis zu 5 LEDs auf der LED-Anzeige 
     * an einer der 5 Spalten.
@@ -397,7 +480,7 @@ namespace TCS34725 {
     //% Position.fieldEditor="gridpicker"
     //% Position.fieldOptions.width=200
     //% Position.fieldOptions.columns=5
-    //% blockId="zeichneBalken" block="Zeichne Balken mit Wert %Wert  | an | %Position"
+    //% blockId="zeichneBalken" block="zeichne Balken mit Wert %Wert  | an | %Position"
     export function zeichneBalken (Wert: number, Position: Spalten) {
     for (let Index = 0; Index <= 4; Index++) {
         led.unplot(Position, 4 - Index)   
@@ -409,58 +492,60 @@ namespace TCS34725 {
        }
     }
 
-   /**
-    * Erkennt eine Pelikan Wasserfarbe mit einer gewissen Toleranz
-    **/
-    //% Position.fieldEditor="gridpicker"
-    //% Position.fieldOptions.width=200
-    //% Position.fieldOptions.columns=5
-    //% blockId="Wasserfarbe" block="Wasserfarbe %color erkannt"
-    export function Wasserfarbe (color:Wasserfarben): boolean {
-        let erkannt : boolean;
-
-    switch (color) {
-    case Wasserfarben.Schwarz : erkannt = TCS34725.Farberkennung(71, 88, 103)
-     break;
-    case Wasserfarben.Magenta : erkannt = TCS34725.Farberkennung(111, 89, 150)
-     break; //
-    case Wasserfarben.Zinnober : erkannt = TCS34725.Farberkennung(125, 71, 75)
-     break; //
-    case Wasserfarben.Gelb : erkannt = TCS34725.Farberkennung(150, 200, 110) 
-     break; //
-    case Wasserfarben.Orange : erkannt = TCS34725.Farberkennung(170, 165, 120)
-     break; //
-    case Wasserfarben.Ocker : erkannt = TCS34725.Farberkennung(86, 116, 89)  
-     break; //
-    case Wasserfarben.Violett : erkannt = TCS34725.Farberkennung(80, 90, 180)   
-     break;//
-    case Wasserfarben.Ultramarin : erkannt = TCS34725.Farberkennung(44, 77, 190)  
-     break;//
-    case Wasserfarben.Cyan : erkannt = TCS34725.Farberkennung(50, 166, 255)
-     break;//
-    case Wasserfarben.Blaugr : erkannt = TCS34725.Farberkennung(50, 120, 120)   
-     break; //
-    case Wasserfarben.Gelbgr : erkannt = TCS34725.Farberkennung(94, 190, 130)
-     break; //
-    case Wasserfarben.GebrSiena : erkannt = TCS34725.Farberkennung(90, 88, 82)
-     break; //
-    }
-    return erkannt
-        
-    }
+  
    
     /**
     * Toleranz zur Farberkennung festlegen (Standard +-30)
     **/
     //% advanced=true
+    //% tol.defl=30
     //% blockId="Toleranzf" block="Toleranz bei Farberkennung %tol"
     export function Toleranzf (tol:number) {
     Toleranz = tol
         }
 
+    /**
+    * Erkennt eine Pelikan Wasserfarbe mit einer gewissen Toleranz
+    **/
+    //% color.fieldEditor="gridpicker"
+    //% color.fieldOptions.width=200
+    //% color.fieldOptions.columns=4
+    //% blockId="Wasserfarbe" block="Wasserfarbe %color erkannt"
+    export function Wasserfarbe (color:Wasserfarben): boolean {
+        let erkannt : boolean;
+
+    switch (color) {
+    case Wasserfarben.Schwarz : erkannt = TCS34725.Farberkennung(schwarz[0], schwarz[1], schwarz[2])
+     break;
+    case Wasserfarben.Magenta : erkannt = TCS34725.Farberkennung(magenta[0], magenta[1], magenta[2])
+     break; //
+    case Wasserfarben.Zinnober : erkannt = TCS34725.Farberkennung(zinnober[0], zinnober[1], zinnober[2])
+     break; //
+    case Wasserfarben.Gelb : erkannt = TCS34725.Farberkennung(gelb[0], gelb[1], gelb[2]) 
+     break; //
+    case Wasserfarben.Orange : erkannt = TCS34725.Farberkennung(orange[0], orange[1], orange[2])
+     break; //
+    case Wasserfarben.Ocker : erkannt = TCS34725.Farberkennung(ocker[0], ocker[1], ocker[2])  
+     break; //
+    case Wasserfarben.Violett : erkannt = TCS34725.Farberkennung(violett[0], violett[1], violett[2])   
+     break;//
+    case Wasserfarben.Ultramarin : erkannt = TCS34725.Farberkennung(ultramarin[0], ultramarin[1], ultramarin[2])  
+     break;//
+    case Wasserfarben.Cyan : erkannt = TCS34725.Farberkennung(cyan[0], cyan[1], cyan[2])
+     break;//
+    case Wasserfarben.Blaugr : erkannt = TCS34725.Farberkennung(blaugr[0], blaugr[1], blaugr[2])   
+     break; //
+    case Wasserfarben.Gelbgr : erkannt = TCS34725.Farberkennung(gelbgr[0], gelbgr[1], gelbgr[2])
+     break; //
+    case Wasserfarben.GebrSiena : erkannt = TCS34725.Farberkennung(gebrsiena[0], gebrsiena[1], gebrsiena[2])
+     break; //
+    }
+    return erkannt
+        
+    }
 
     /**
-    * Farberkennung über 3 RGB - Werte
+    * Farberkennung über die drei RGB - Werte
     **/
     //% advanced=true
     //% blockId="Farberkennung" block="Farberkennung R %RWert G %GWert B %BWert"
