@@ -1,9 +1,9 @@
 
 > Diese Seite bei [https://mkleinsb.github.io/pxt-columbuseye/](https://mkleinsb.github.io/pxt-columbuseye/) öffnen
 
-![columbuseye](https://github.com/MKleinSB/pxt-columbuseye/raw/master/icon.png)
 
-| ![IOExpander & MakerBit](https://github.com/MKleinSB/pxt-MCP23017-easy12/blob/master/1.JPG "IOExpander & MakerBit") | ![MakerBit+R](https://github.com/MKleinSB/pxt-MCP23017-easy12/blob/master/2.JPG "IOExpander & Calliope Mini") |
+
+| ![Grovesensor](https://github.com/MKleinSB/pxt-columbuseye/blob/master/grove.png) | ![Adafruitsensor](https://github.com/MKleinSB/pxt-columbuseye/blob/master/TCS34725.png) |
 | :----------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: |
 |                                            _Grove RGB-Sensor_                                            |                                   _adafruit TCS34725 Sensor_                                   |
 
@@ -67,6 +67,11 @@ Liest den Farbsensor aus und vergleicht die Werte mit den angegebenen RGB Werten
 ```sig
 TCS34725.Farberkennung(0, 0, 0)
 ```
+
+
+
+
+
 
 #### Metadaten (verwendet für Suche, Rendering)
 
