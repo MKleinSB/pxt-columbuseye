@@ -1,11 +1,18 @@
 
-> Diese Seite bei [https://mkleinsb.github.io/pxt-columbuseye/](https://mkleinsb.github.io/pxt-columbuseye/) öffnen
+Diese Seite auf Github Pages bei [https://mkleinsb.github.io/pxt-columbuseye/](https://mkleinsb.github.io/pxt-columbuseye/) öffnen
 
+# pxt-columbuseye 
 
+Mit dem TCS34725 Sensor kann man die Rot, Grün und Blauanteile des Lichts messen. Verfügbare Erweiterungen für den Calliope mini verfügen über eine LED zur Beleuchtung, manche auch über einen Kunststoffring oder sogar einer Linse. Varianten mit Kunststoffring sind zu empfehlen, da dort der Abstand zum Objekt immer gleich groß ist.
+Die vorliegende Erweiterung entstand für http://columbuseye.rub.de/. Dort gibt es auch (demnächst) die zugehörigen Arbeitsblätter für den Unterricht.
+
+Dank an **Niels Dedring** für den netten Kontakt und die Rückmeldungen.
+
+Originalcode der Erweiterung https://github.com/samnied/pxt-tcs34725 TCS34725 extension von **Samuel Niederer**. Danke!
 
 | ![Grovesensor](https://github.com/MKleinSB/pxt-columbuseye/blob/master/grove.png) | ![Adafruitsensor](https://github.com/MKleinSB/pxt-columbuseye/blob/master/TCS34725.png) |
 | :----------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: |
-|                                            _Grove RGB-Sensor_                                            |                                   _adafruit TCS34725 Sensor_                                   |
+|                                            _Grove RGB-Sensor_                                            |                                   _TCS34725 Sensor Breakout_                                   |
 
 
 ## Blöcke 
@@ -68,8 +75,9 @@ Liest den Farbsensor aus und vergleicht die Werte mit den angegebenen RGB Werten
 TCS34725.Farberkennung(0, 0, 0)
 ```
 
+## Beispielprogramm
 
-
+![Grovesensor](https://github.com/MKleinSB/pxt-columbuseye/blob/master/mini-Screenshot.png)
 
 
 
