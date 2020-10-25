@@ -1,25 +1,17 @@
 
 > Diese Seite bei [https://mkleinsb.github.io/pxt-columbuseye/](https://mkleinsb.github.io/pxt-columbuseye/) öffnen
 
-## Als Erweiterung verwenden
+![columbuseye](https://github.com/MKleinSB/pxt-columbuseye/raw/master/icon.png)
 
-Dieses Repository kann als **Erweiterung** in MakeCode hinzugefügt werden.
 
-* öffne [https://makecode.calliope.cc/](https://makecode.calliope.cc/)
-* klicke auf **Neues Projekt**
-* klicke auf **Erweiterungen** unter dem Zahnrad-Menü
-* nach **https://github.com/mkleinsb/pxt-columbuseye** suchen und importieren
+### Blöcke 
+## start
 
-## Dieses Projekt bearbeiten ![Build Status Abzeichen](https://github.com/mkleinsb/pxt-columbuseye/workflows/MakeCode/badge.svg)
+Initialisiert den TCS34725 RGB-Sensor. **Muss** immer zu Beginn aufgerufen werden.
 
-Um dieses Repository in MakeCode zu bearbeiten.
-
-* öffne [https://makecode.calliope.cc/](https://makecode.calliope.cc/)
-* klicke auf **Importieren** und dann auf **Importiere URL**
-* füge **https://github.com/mkleinsb/pxt-columbuseye** ein und klicke auf Importieren
-
-## Blöcke 
-![](https://github.com/MKleinSB/pxt-columbuseye/blob/master/mini-Screenshot.png)
+```sig
+TCS34725.start()
+```
 
 #### Metadaten (verwendet für Suche, Rendering)
 
