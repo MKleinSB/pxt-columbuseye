@@ -3,6 +3,10 @@
 
 ![columbuseye](https://github.com/MKleinSB/pxt-columbuseye/raw/master/icon.png)
 
+| ![IOExpander & MakerBit](https://github.com/MKleinSB/pxt-MCP23017-easy12/blob/master/1.JPG "IOExpander & MakerBit") | ![MakerBit+R](https://github.com/MKleinSB/pxt-MCP23017-easy12/blob/master/2.JPG "IOExpander & Calliope Mini") |
+| :----------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: |
+|                                            _Grove RGB-Sensor_                                            |                                   _adafruit TCS34725 Sensor_                                   |
+
 
 ## Blöcke 
 ### starte Farbsensor
