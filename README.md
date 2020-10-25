@@ -16,6 +16,7 @@ TCS34725.start()
 ### lerne Farbe
 
 Speichert die Farbdaten in die angegebene Farbe um diese dann später wiederzuerkennen. Theoretisch muss nicht schwarz in schwarz gespeichert werden, ist aber zum wiedererkennen besser. Außerdem leuchtet die LED in der entsprechenden Farbe. Die Speicherung der jeweiligen Farbe muss mit dem Knopf "A" bestätigt werden.
+Wenn keine Farbdaten eingelernt werden wird auf Standardwerte zurückgegriffen.
 
 ```sig
 TCS34725.LernFarbe(Wasserfarben.Schwarz)
@@ -37,7 +38,31 @@ Zeichnet einen Balken auf dem Calliope mini Display. Die Werte werden an die Dis
 TCS34725.zeichneBalken(0, Spalten.col0)
 ```
 
+### Wasserfarbe erkannt
 
+Liest den Farbsensor aus und vergleicht die Werte mit den eingelernten Daten. Um ungleichmäßigen Farbauftrag auszugleichen haben alle RGB-Werte eine voreingestellte Toleranz von +-30. Diese kann über den Block "Toleranz bei Farberkennung" angepasst werden. 
+
+```sig
+TCS34725.Wasserfarbe(Wasserfarben.Schwarz)
+```
+
+## ... mehr 
+### Toleranz bei Farberkennung
+
+Hiermit kann die Toleranz der Farberkennung verschärft oder erweitert werde. Voreinstellt ist +-30, d.h. jeder einzelne RGB-Wert kann um 30 nach oben oder unten abweichen.
+
+```sig
+TCS34725.Toleranzf(30)
+```
+
+
+### Farberkennung RGB
+
+Liest den Farbsensor aus und vergleicht die Werte mit den angegebenen RGB Werten. Um ungleichmäßigen Farbauftrag auszugleichen haben alle RGB-Werte eine voreingestellte Toleranz von +-30. Diese kann über den Toleranzblock angepasst werden. 
+
+```sig
+TCS34725.Farberkennung(0, 0, 0)
+```
 
 #### Metadaten (verwendet für Suche, Rendering)
 
