@@ -473,14 +473,14 @@ namespace TCS34725 {
 
 
     /**
-    * Zeichnet einen Balken mit bis zu 5 LEDs auf der LED-Anzeige 
+    * Zeichnet eine Säule mit bis zu 5 LEDs auf der LED-Anzeige 
     * an einer der 5 Spalten.
     **/
     //% Position.fieldEditor="gridpicker"
     //% Position.fieldOptions.width=200
     //% Position.fieldOptions.columns=5
-    //% blockId="zeichneBalken" block="zeichne Balken mit Wert %Wert  | an | %Position"
-    export function zeichneBalken (Wert: number, Position: Spalten) {
+    //% blockId="zeichneSaule" block="zeichne Säule mit dem Wert %Wert  | an | %Position"
+    export function zeichneSaule (Wert: number, Position: Spalten) {
     for (let Index = 0; Index <= 4; Index++) {
         led.unplot(Position, 4 - Index)   
     }

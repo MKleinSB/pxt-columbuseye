@@ -43,12 +43,12 @@ Liest die Farbanteile (Jeweils 0-255) der aktuellen Farbe aus. Jeweils Für Rot,
 TCS34725.getSensorData(RGB.RED)
 ```
 
-### Zeichne Balken
+### Zeichne Säule
 
-Zeichnet einen Balken auf dem Calliope mini Display. Die Werte werden an die Displayhöhe von 5 roten LEDs angepasst, es können bis zu 5 Spalten angegeben werden. 0 ist die linke Spalte, 2 die mittlere und 4 die rechte. So kann man bequem die drei mit Farbdaten ausgelesenen RGB-Werte darstellen.  
+Zeichnet eine Säule auf dem Calliope mini Display. Die Werte werden an die Displayhöhe von 5 roten LEDs angepasst, es können bis zu 5 Spalten angegeben werden. 0 ist die linke Spalte, 2 die mittlere und 4 die rechte. So kann man bequem die drei mit Farbdaten ausgelesenen RGB-Werte darstellen.  
 
 ```sig
-TCS34725.zeichneBalken(0, Spalten.col0)
+TCS34725.zeichneSaule(0, Spalten.col0)
 ```
 
 ### Wasserfarbe erkannt
