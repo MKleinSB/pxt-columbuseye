@@ -3,7 +3,7 @@ Diese Seite auf Github Pages bei [https://mkleinsb.github.io/pxt-columbuseye/](h
 
 # pxt-columbuseye 
 
-Mit dem TCS34725 Sensor kann man die Rot, Grün und Blauanteile des Lichts messen. Verfügbare Erweiterungen für den Calliope mini verfügen über eine LED zur Beleuchtung, manche auch über einen Kunststoffring oder sogar einer Linse. Varianten mit Kunststoffring sind zu empfehlen, da dort der Abstand zum Objekt immer gleich groß ist.
+Mit dem TCS34725 Sensor kann man die Rot, Grün und Blauanteile des Lichts messen. Erweiterungen für den Calliope mini verfügen über eine LED zur Beleuchtung, manche auch über einen Kunststoffring oder sogar einer Linse. Varianten mit Kunststoffring sind zu empfehlen, da dort der Abstand zum Objekt immer gleich groß ist.
 Die vorliegende Erweiterung entstand für http://columbuseye.rub.de/. Dort gibt es auch (demnächst) die zugehörigen Arbeitsblätter für den Unterricht.
 
 Die Farben sind nach den Farben des Pelikan Wasserfarbkastens benannt, da dieser in jeder Klasse vorhanden sein sollte.
