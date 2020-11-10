@@ -62,7 +62,7 @@ TCS34725.Wasserfarbe(Wasserfarben.Schwarz)
 ## ... mehr 
 ### Toleranz bei Farberkennung
 
-Hiermit kann die Toleranz der Farberkennung verschärft oder erweitert werde. Voreinstellt ist +-30, d.h. jeder einzelne RGB-Wert kann um 30 nach oben oder unten abweichen.
+Hiermit kann die Toleranz der Farberkennung verschärft oder erweitert werde. Voreinstellt ist +-30, d.h. jeder einzelne RGB-Wert kann um 30 nach oben oder unten abweichen. Den Wert sollte man verringern wenn die Farben nicht unterschieden werden können. 
 
 ```sig
 TCS34725.Toleranzf(30)
