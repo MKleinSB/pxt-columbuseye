@@ -77,6 +77,15 @@ Liest den Farbsensor aus und vergleicht die Werte mit den angegebenen RGB Werten
 TCS34725.Farberkennung(0, 0, 0)
 ```
 
+
+### Farbmemory
+
+Merke Dir die Reihenfolge der Farben beim Farbmemoryspiel
+
+```sig
+TCS34725.Farbmemory
+```
+
 ## Beispielprogramm
 
 ![Grovesensor](https://github.com/MKleinSB/pxt-columbuseye/blob/master/mini-Screenshot.png)

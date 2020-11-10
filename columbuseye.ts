@@ -404,7 +404,7 @@ namespace TCS34725 {
         return color;
     }
 
-  /**
+    /**
     * Speichert die RGB-Werte der angegebenen Farbe
     **/
     //% color.fieldEditor="gridpicker"
@@ -566,5 +566,52 @@ namespace TCS34725 {
         return false
     }
   }
+
+    /**
+    * Farbmemoryspiel: Nach dem Anlernen der 5 Farben zeigt der Calliope mini 2 Farben an
+    * die Du suchen und mit Knopf A bestätigen musst. Hast Du die richtigen Farben
+    * wiedergefunden geht das Spiel weiter mit 3, 4 usw. Farben. Wer sich die meisten
+    * Farben merken kann, erhält die meisten Punkte.
+    **/
+    //% advanced=true
+    //% blockId="Farbmemory" block="Farbmemory"
+    export function Farbmemory () {
+    let LEDFarbArray: number[] = []
+    let FarbArray: number[] = []
+    let Zufallsarray: number[] = []
+    TCS34725.start()
+    TCS34725.Toleranzf(20)
+    game.setScore(0)
+    FarbArray = [Wasserfarben.Blaugr, Wasserfarben.Zinnober, Wasserfarben.Violett, Wasserfarben.Ultramarin, Wasserfarben.Gelb]
+    LEDFarbArray = [Colors.Green, Colors.Red, Colors.Violet, Colors.Blue, Colors.Yellow]
+    for (let Index2 = 0; Index2 <= 4; Index2++) {
+        TCS34725.LernFarbe(FarbArray[Index2])
+    }
+    while (true) {
+        game.addScore(1)
+        basic.pause(500)
+        for (let i = 0; i <= game.score(); i++) {
+            music.playTone(392, music.beat(BeatFraction.Quarter))
+            Zufallsarray[i] = randint(0, 4)
+            basic.setLedColor(LEDFarbArray[Zufallsarray[i]])
+            basic.pause(1000)
+            basic.setLedColor(0x000000)
+            basic.pause(500)
+        }
+        for (let j = 0; j <= game.score(); j++) {
+            basic.showIcon(IconNames.ArrowWest)
+            while (!(input.buttonIsPressed(Button.A))) {
+            	
+            }
+            if ((TCS34725.Wasserfarbe(FarbArray[Zufallsarray[j]]))) {
+                basic.showIcon(IconNames.Happy)
+                basic.pause(500)
+            } else {
+                game.gameOver()
+            }
+        }
+    }
+}
+
 
 }
