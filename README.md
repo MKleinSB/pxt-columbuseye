@@ -59,6 +59,14 @@ Liest den Farbsensor aus und vergleicht die Werte mit den eingelernten Daten. Um
 TCS34725.Wasserfarbe(Wasserfarben.Schwarz)
 ```
 
+### setze RGB-LED-Farbe auf
+
+Färbt die RGB-LED des Calliope mini in der entsprechenden Farbe (Brauntöne und Schwarz lassen sich schlecht darstellen)
+
+```sig
+TCS34725.SetLedColor(Wasserfarben.Magenta)
+```
+
 ## ... mehr 
 ### Toleranz bei Farberkennung
 
