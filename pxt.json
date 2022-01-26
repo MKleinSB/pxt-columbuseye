@@ -10,7 +10,8 @@
         "README.md",
         "main.blocks",
         "main.ts",
-        "columbuseye.ts"
+        "columbuseye.ts",
+        "_locales/de/pxt-columbuseye-strings.json"
     ],
     "testFiles": [
         "test.ts"
