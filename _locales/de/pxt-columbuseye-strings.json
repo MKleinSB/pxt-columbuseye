@@ -25,6 +25,6 @@
     "TCS34725.zeichneSaule|block": "zeichne Säule mit dem Wert %Wert  | an Spalte | %Position",
     "TCS34725.Wasserfarbe|block": "Wasserfarbe %color erkannt",
     "TCS34725.Toleranzf|block": "Toleranz bei Farberkennung %tol",
-    "TCS34725.Farberkennung|block": "Farberkennung über RGB-Werte R %RWert G %GWert B %BWert"
+    "TCS34725.Farberkennung|block": "Farberkennung über RGB-Werte R %RWert G %GWert B %BWert",
     "TCS34725.Farbmemory|block": "Farbmemory"
 }

@@ -411,7 +411,7 @@ namespace TCS34725 {
     //% color.fieldOptions.width=200
     //% color.fieldOptions.columns=4
     //% blockId="LernFarbe" block="learn color %color"
-    //% group="On Start"
+    //% group="Sensor"
     export function LernFarbe (color:Wasserfarben) {
 
     basic.showIcon(IconNames.ArrowWest)
