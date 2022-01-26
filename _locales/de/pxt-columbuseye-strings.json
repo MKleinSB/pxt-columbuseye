@@ -1,0 +1,30 @@
+{
+    "{id:group}On Start": "Beim Start",
+    "{id:group}Sensor": "Sensor",
+    "RGB.RED|block": "Rot",
+    "RGB.GREEN|block": "Grün",
+    "RGB.BLUE|block": "Blau",
+    "RGB.CLEAR_LIGHT|block": "Luminanz",
+
+    "Wasserfarben.Schwarz|block": "Schwarz",
+    "Wasserfarben.Magenta|block": "Magentarot",
+    "Wasserfarben.Zinnober|block": "Zinnoberrot",
+    "Wasserfarben.Gelb|block": "Gelb",
+    "Wasserfarben.Orange|block": "Orange",
+    "Wasserfarben.Ocker|block": "Ockergelb",
+    "Wasserfarben.Violett|block": "Violett",
+    "Wasserfarben.Ultramarin|block": "Ultramarinblau",
+    "Wasserfarben.Cyan|block": "Cyanblau",
+    "Wasserfarben.Blaugr|block": "Blaugrün",
+    "Wasserfarben.Gelbgr|block": "Gelbgrün",
+    "Wasserfarben.GebrSiena|block": "Gebr. Siena",
+
+    "TCS34725.getSensorData|block": "Farbdaten %colorId",
+    "TCS34725.LernFarbe|block": "lerne Farbe %color",
+    "TCS34725.start|block": "starte Farbsensor (100ms)",
+    "TCS34725.zeichneSaule|block": "zeichne Säule mit dem Wert %Wert  | an Spalte | %Position",
+    "TCS34725.Wasserfarbe|block": "Wasserfarbe %color erkannt",
+    "TCS34725.Toleranzf|block": "Toleranz bei Farberkennung %tol",
+    "TCS34725.Farberkennung|block": "Farberkennung über RGB-Werte R %RWert G %GWert B %BWert"
+    "TCS34725.Farbmemory|block": "Farbmemory"
+}
