@@ -2,7 +2,7 @@ Diese Seite auf Github Pages bei [https://mkleinsb.github.io/pxt-columbuseye/](h
 
 # MKleinSB/pxt-columbuseye 
 
-Mit dem TCS34725 Sensor kann man die Rot-, Grün- und Blauanteile des Lichts messen. Erweiterungen für den Calliope mini verfügen über eine LED zur Beleuchtung, manche auch über einen Kunststoffring oder sogar einer Linse. Varianten mit Kunststoffring sind zu empfehlen, da dort der Abstand zum Objekt immer gleich groß ist und es zu wemiger Fremdlichteinstreuung kommt.
+Mit dem TCS34725 Sensor kann man die Rot-, Grün- und Blauanteile des Lichts messen. Erweiterungen für den Calliope mini verfügen über eine LED zur Beleuchtung, manche auch über einen Kunststoffring oder sogar einer Linse. Varianten mit Kunststoffring sind zu empfehlen, da dort der Abstand zum Objekt immer gleich groß ist und es zu weniger Fremdlichteinstreuung kommt.
 Die vorliegende Erweiterung entstand für http://columbuseye.rub.de/. Dort gibt es auch die zugehörigen Arbeitsblätter für den Unterricht unter http://columbuseye.rub.de/unterricht/#Arbeitsbl%C3%A4tter
 
 Die Farben sind nach den Farben des Pelikan Wasserfarbkastens benannt, da dieser in jeder Klasse vorhanden sein sollte.
@@ -27,7 +27,7 @@ TCS34725.start()
 
 ### lerne Farbe
 
-Speichert die Farbdaten in die angegebene Farbe um diese dann später wiederzuerkennen. Theoretisch muss nicht schwarz in schwarz gespeichert werden, ist aber zum wiedererkennen besser. Außerdem leuchtet die LED in der entsprechenden Farbe. Die Speicherung der jeweiligen Farbe muss mit dem Knopf "A" bestätigt werden.
+Speichert die Farbdaten in die angegebene Farbe um diese dann später wiederzuerkennen. Theoretisch muss nicht schwarz in schwarz gespeichert werden, ist aber zum Wiedererkennen besser. Außerdem leuchtet die LED in der entsprechenden Farbe. Die Speicherung der jeweiligen Farbe muss mit dem Knopf "A" bestätigt werden.
 Wenn keine Farbdaten eingelernt werden wird auf Standardwerte zurückgegriffen.
 
 ```sig
