@@ -20,7 +20,7 @@ jobs:
       - name: npm install
         run: |
           npm install -g pxt
-          pxt target microbit
+          pxt target calliopemini
       - name: build
         run: |
           pxt install
